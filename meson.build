@@ -45,17 +45,22 @@ add_project_arguments(cxx.get_supported_arguments(cxx_flags), language: 'cpp')
 pthread_dep = dependency('threads')
 
 # Do some architecture name remapping
-libevl_arch = host_machine.cpu_family()
-if libevl_arch == 'x86'
-    error('i386 not supported')
-endif
-if libevl_arch == 'x86_64'
-    libevl_arch = 'x86'
-endif
-
-if libevl_arch == 'aarch64'
-    libevl_arch = 'arm64'
-endif
+# libevl_arch = host_machine.cpu_family()
+# if libevl_arch == 'x86'
+#     error('i386 not supported')
+# endif
+# if libevl_arch == 'x86_64'
+#     libevl_arch = 'x86'
+# endif
+# 
+# if libevl_arch == 'aarch64'
+#     libevl_arch = 'arm64'
+# endif
+# 
+# if libevl_arch == 'riscv64'
+#     libevl_arch = 'riscv'
+# endif
+libevl_arch = 'riscv'
 
 post_install = find_program('post-install.sh',
     dirs : libevl_scripts,

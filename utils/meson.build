@@ -22,12 +22,12 @@ executable('evl-check',
 
 libbpf_dep = dependency('libbpf')
 
-executable('evl-net',
-    'evl-net.c',
-    install: true,
-    install_dir : libexec_evl,
-    dependencies: [ libevl_dep, libbpf_dep ]
-)
+# executable('evl-net',
+#     'evl-net.c',
+#     install: true,
+#     install_dir : libexec_evl,
+#     dependencies: [ libevl_dep, libbpf_dep ]
+# )
 
 helper_scripts = [
 	'evl-gdb',
